@@ -1,0 +1,127 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GitHub Resume for {{ user.login }}{% endblock %}
+
+{% block body %}
+    <div id="wrapper" class="border">
+        <div id="container">
+            <div id="welcome">
+                <div class="githubImg">
+                    <a class="navbar-brand" href="/">
+                        <img class="github-logo" src="{{ asset("images") ~  github_logo }}" alt="{{ github_logo }}" />
+                        Github2Resume
+                    </a>
+                </div>
+                <div id="back">
+                    <p>
+                        <a href="{{ url('home') }}">BACK</a>
+                    </p>
+                </div>
+                <hr>
+                <div class="userImg text-center">
+                    {% if user.avatar_url is not empty %}
+                        <img src="{{ user.avatar_url }}" class="img-thumbnail" alt="avatar of {{ user.login }}">
+                    {% endif %}
+                    <h1>{{ user.name }}</h1>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="content">
+                <table>
+                    <tr>
+                        <td><strong>Username:</strong></td>
+                        <td><ul><li>{{ user.login }}</li></ul></td>
+                    </tr>
+                    {% if user.public_repos %}
+                    <tr>
+                        <td><strong>Repositories:</strong></td>
+                        <td><ul><li><a href="{{ user.html_url }}?tab=repositories">{{ user.public_repos }}</a></ul></li></td>
+                    </tr>
+                    {% endif %}
+
+                    {% if user.followers %}
+                    <tr>
+                        <td><strong>Followers:</strong></td>
+                        <td><ul><li>{{ user.followers }}</ul></li></td>
+                    </tr>
+                    {% endif %}
+
+                    {% if user.location %}
+                    <tr>
+                        <td><strong>Location:</strong></td>
+                        <td><ul><li>{{ user.location }}</ul></li></td>
+                    </tr>
+                    {% endif %}
+
+                    {% if user.email %}
+                    <tr>
+                        <td><strong>Email:</strong></td>
+                        <td><ul><li><a href="mailto:{{ user.email }}">{{ user.email }}</a></ul></li></td>
+                    </tr>
+                    {% endif %}
+
+                    {% if user.blog %}
+                    <tr>
+                        <td><strong>Website:</strong></td>
+                        <td><ul><li><a href="{{ user.blog }}">{{ user.blog }}</a></ul></li></td>
+                    </tr>
+                    {% endif %}
+
+                    {% if repos %}
+                    <tr>
+                        <td><strong>Languages:</strong></td>
+                        <td>
+                            <ul>
+                                {% for lang in langs %}
+                                    <li>
+                                        {{ lang.name }} - {{ lang.percentage }}%
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    
+                    {% if repos %}
+                    <tr>
+                        <td><strong>Repositories:</strong></td>
+                        <td>
+                            <ul class="userDetails">
+                                {% for repo in repos %}
+                                    <li>
+                                        <a href="{{ repo.html_url }}">{{ repo.name }}</a>
+                                        {% if repo.description is not empty %}
+                                            <p>{{ repo.description }}</p>
+                                        {% endif %}
+
+                                        <div class="repoDetails">
+                                            {% if repo.language %}
+                                                <span class="mr-3">
+                                                    <span class="repo-lan"></span>
+                                                    <span>{{ repo.language }}</span>
+                                                </span>
+                                            {% endif %}
+
+                                            {% if repo.stargazers_count %}
+                                                <a class="mr-3 stargazersCount" href="{{repo.html_url}}/stargazers">
+                                                    <span class="star">☆</span>
+                                                    <span class="stargazers_count">{{ repo.stargazers_count }}</span>
+                                                </a>
+                                            {% endif %}
+
+                                            {% if repo.pushed_at %}
+                                                <span>Updated on {{ repo.pushed_at | date('F d, Y') }}</span>
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                    <hr>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endif %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

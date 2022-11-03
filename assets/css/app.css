@@ -1,0 +1,112 @@
+body {
+  background: #f5f5f5;
+  font: 18px/1.5 sans-serif;
+}
+p {
+  margin: 0 0 1em 0;
+}
+a {
+  color: #0000f0;
+}
+a:hover {
+  text-decoration: none;
+}
+code {
+  background: #f5f5f5;
+  max-width: 100px;
+  padding: 2px 6px;
+  word-wrap: break-word;
+}
+#wrapper {
+  background: #fff;
+  margin: 1em auto;
+  max-width: 800px;
+  width: 95%;
+}
+#container {
+  padding: 2em;
+}
+#githubCv,
+#content {
+  margin-bottom: 2em;
+}
+table td {
+  vertical-align: top;
+}
+ul {
+  margin-top: 0;
+  padding-top: 0;
+}
+#githubCv h1 {
+  float: left;
+}
+#githubCv h2 {
+  color: #4078c0	;
+  text-align: center;
+  font-size: 27px;
+}
+.github-logo {
+  height: 25px;
+  width: 25px;
+}
+#githubCv img {
+  width: 50px;
+  height: 50px;
+  float: right;
+}
+.githubcls {
+  margin-bottom: 30px;
+    margin-left: 15px;
+}
+#form {
+  text-align: center;
+}
+#form label {
+  font-size: 80%;
+  font-weight: 700;
+}
+#welcome {
+  color: #990003;
+}
+.userImg img {
+  width: 150px;
+  border-radius: 80px;
+}
+.userImg h1{
+  color: #990003;
+}
+.githubImg {
+  width: 90%;
+  float: left;
+  margin-top: -10px;
+}
+ul.userDetails li a {
+  font-weight: 700;
+  font-size: 20px;
+}
+ul.userDetails li p {
+  margin-top: 5px;
+  margin-bottom: 6px !important;
+  font-size: 16px;
+}
+.repo-lan {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--color-repo-language-color-border);
+  border-radius: 50%;
+  background-color:green;
+}
+.repoDetails {
+  font-size: 15px;
+}
+.stargazers_count {
+  font-size: 15px;
+  color: blue !important;
+  font-weight: bold !important;
+}
+.star{
+  color: black;
+}

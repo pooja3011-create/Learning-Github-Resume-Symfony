@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}GitHub Resume - Error{% endblock %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+            <div class="githubImg">
+                <a class="navbar-brand" href="/">
+                    <img class="github-logo" src="{{ asset("images") ~  github_logo }}" alt="{{ github_logo }}" />
+                    Github2Resume
+                </a>
+            </div>
+            <div id="content">
+                <p>
+                    {% for error in app.flashes('error') %}
+                        {{ error }}
+                    {% endfor %}
+                </p>
+            </div>
+            <div id="back">
+                <p>
+                    <a href="{{ url('home') }}"> BACK </a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
